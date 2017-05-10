@@ -1,2 +1,1 @@
-var HC=window.HC||{};HC.accordion=function(a,b){return{init:function(){var a=this;b(".accord").length>0&&a.addClickHandlers()},addClickHandlers:function(){var a=this;b(".accord-head").click(a.clickHandler)},clickHandler:function(c){var d=a.accordion,e=b(c.target),f=e.parent().parent(),g=f.find(".accord-content");f.hasClass("accord-expanded")?d.hideContent(g):d.showContent(g)},showContent:function(a){var b=a.parent();a.slideDown(),b.addClass("accord-expanded"),a.attr("aria-expanded","true")},hideContent:function(a){var b=a.parent();a.slideUp(),b.removeClass("accord-expanded"),a.attr("aria-expanded","false")}}}(HC,$),HC.accordion.init();
-//# sourceMappingURL=functions.js.map
+var namespace = window.namespace || {};

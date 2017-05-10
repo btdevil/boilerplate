@@ -108,7 +108,7 @@
     grunt.renameTask('watch', 'watchdev');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['jshint:files', 'uglify:dist', 'sass:dist', 'jasmine','watch']);
-    grunt.registerTask('dev', ['jshint:files', 'concat:mainExpanded', 'sass:dev', 'jasmine', 'watchdev']);
+    grunt.registerTask('default', ['jshint:files', 'uglify:dist', 'sass:dist', 'concat:distExpanded', 'jasmine','watch']);
+    grunt.registerTask('dev', ['jshint:files', 'concat:devExpanded', 'sass:dev', 'jasmine', 'watchdev']);
 
 }
