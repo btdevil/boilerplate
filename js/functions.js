@@ -1,1 +1,2 @@
-var namespace = window.namespace || {};
+var namespace=window.namespace||{},myVar="your code here";
+//# sourceMappingURL=functions.js.map

@@ -7,7 +7,8 @@
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-    var functions = ['src/js/base.js'];
+    var baseFunctions = ['src/js/base.js'];
+    var otherFunctions = ['src/**/*.js', '!src/base/**']
     var libs = [];
 
     grunt.initConfig({
@@ -18,28 +19,28 @@
 
             },
             grunt: 'Gruntfile.js',
-            files: [functions]
+            files: [baseFunctions, otherFunctions]
         },
         concat: {
             devExpanded: {
                 options: {
                     sourceMap: false
                 },
-                src: [libs, functions],
+                src: [libs, baseFunctions, otherFunctions],
                 dest: 'js/functions.js',
             },
             distExpanded: {
                 options: {
                     sourceMap: false
                 },
-                src: [libs, functions],
+                src: [libs, baseFunctions, otherFunctions],
                 dest: 'js/functions.expanded.js',
             }
         },
         uglify: {
             dist: {
                 files: {
-                    'js/functions.js': [libs, functions]
+                    'js/functions.js': [libs, baseFunctions, otherFunctions]
                 },
                 options: { sourceMap: true }
             },
@@ -82,8 +83,8 @@
                 livereload: true
             },
             js: {
-                files: [libs, functions],
-                tasks: ['jshint:files', 'concat:devExpanded']
+                files: [libs, baseFunctions, otherFunctions],
+                tasks: ['jshint:files', 'concat:devExpanded','jasmine']
             },
             sass: {
                 files: ['src/sass/**/*.{scss,sass}'],
@@ -95,8 +96,8 @@
                 livereload: true
             },
             js: {
-                files: [libs, functions],
-                tasks: ['jshint:files', 'uglify:dist', 'concat:distExpanded']
+                files: [libs, baseFunctions, otherFunctions],
+                tasks: ['jshint:files', 'uglify:dist', 'concat:distExpanded','jasmine']
             },
             sass: {
                 files: ['src/sass/**/*.{scss,sass}'],
